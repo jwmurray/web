@@ -1,0 +1,2 @@
+class Byline < ActiveRecord::Base
+end
