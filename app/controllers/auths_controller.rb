@@ -7,8 +7,12 @@ class AuthsController < ApplicationController
 logger.info "1."
     @auths = Auth.all
 logger.info "2."
+
     @request = AuthsRequest.new;
 logger.info "3."
+    @redirect_url = @request.ClioGetRedirectUrl;
+
+    redirect_to @redirect_url, :status => 302;
     @token = @request.ClioGetToken;
 logger.info "4." + @token.to_s;
     
@@ -21,7 +25,8 @@ logger.info "4." + @token.to_s;
 
   # GET /auths/new
   def new
-    @auth = Auth.new
+        redirect_to  "http://www.google.com", :status => 302;
+#    @auth = Auth.new
   end
 
   # GET /auths/1/edit
