@@ -1,4 +1,0 @@
-class Removecolumns < ActiveRecord::Migration
-  def change
-  end
-end

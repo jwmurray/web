@@ -1,0 +1,21 @@
+require 'rubygems'
+require 'oauth2'
+client_key = 'rVUqQhIrJEVkkSVo3uSyrRgDzzLum1b8J1NJ4Dtv'
+client_secret = 'jjF3E6Lyx48yk7QkNvE7IykYr6iJIHBx8C7cBaS4'
+client = OAuth2::Client.new(client_key, client_secret, :site => 'https://app.goclio.com/')
+
+#client.auth_code.authorize_url(:redirect_uri => 'http://yourapp.com/callback')
+client.auth_code.authorize_url(:redirect_uri => 'http://localhost/callback')
+# Redirect user or paste in the browser
+# => "https://app.goclio.com/oauth/authorize?response_type=code&client_id=client_key&redirect_uri=http://yourapp.com/callback"
+
+# redirects to http://yourapp.com/callback?state=&code=secretcode
+# Use the code param below to get a token
+
+code = 'secretcode'
+token = client.auth_code.get_token(code, :redirect_uri => 'http://localhost/callback')
+saved_token = token.token
+
+logger.info 'token: ' + saved_token.to_s;
+# => "WjR8HLdo847Z8kdfUtewJpCvkRX4JYLCIF2dUUul"
+# Save this value for future requests

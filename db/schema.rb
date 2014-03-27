@@ -11,20 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318153914) do
+ActiveRecord::Schema.define(version: 20140322003252) do
 
   create_table "authors", force: true do |t|
+    t.string   "name"
     t.integer  "document_id"
     t.string   "relationship"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "bylines", force: true do |t|
-    t.integer  "document_id"
-    t.integer  "product_id"
+  create_table "auths", force: true do |t|
+    t.string   "token"
+    t.string   "secret"
+    t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "bylines", force: true do |t|
+    t.integer  "document_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "author_id"
   end
 
   create_table "documents", force: true do |t|

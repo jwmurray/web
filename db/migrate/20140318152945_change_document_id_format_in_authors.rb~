@@ -1,4 +1,0 @@
-class ChangeDocumentIdFormatInAuthors < ActiveRecord::Migration
-  def change
-  end
-end

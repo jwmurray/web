@@ -44,3 +44,5 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'mysql'
+gem 'oauth2'
+gem 'clio_client', '~> 0.0.4'

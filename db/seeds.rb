@@ -6,4 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Document.create(title: "Felicia's Affidavit 2-17-2014-om.pdf")
+doc = Document.create(title: "Felicia's Affidavit 2-17-2014-om.pdf");
+Byline.create();
+
+doc2 = Document.create(title: "testdocument.docx");
+
+author1 = Author.create(name: 'Jared Steele');
+
+doc2.authors << author1
+
+
+
+
