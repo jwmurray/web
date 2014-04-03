@@ -3,6 +3,7 @@ Web::Application.routes.draw do
 #  get "auths/callback"
   resources :callback
 #  resources :auth 
+  resources :clients
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140322003252) do
+ActiveRecord::Schema.define(version: 20140403191306) do
+
+  create_table "accesses", force: true do |t|
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "client_secret"
+    t.string   "client_id"
+    t.string   "client_callback_url"
+    t.string   "client_code"
+  end
 
   create_table "authors", force: true do |t|
-    t.string   "name"
     t.integer  "document_id"
     t.string   "relationship"
     t.datetime "created_at"
@@ -31,9 +40,9 @@ ActiveRecord::Schema.define(version: 20140322003252) do
 
   create_table "bylines", force: true do |t|
     t.integer  "document_id"
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "author_id"
   end
 
   create_table "documents", force: true do |t|

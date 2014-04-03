@@ -1,0 +1,23 @@
+
+[#<
+	ClioClient::Account 
+	id: 0, 
+	created_at: Fri, 21 Feb 2014 20:12:37 +0000, 
+	updated_at: Sat, 29 Mar 2014 19:00:28 +0000, 
+	maildrop_address: "173145471@maildrop.goclio.com", 
+	name: "Law Office of John Murray", 
+	owner_id: 344246096>, 
+#<
+	ClioClient::User 
+	id: 344246096, 
+	created_at: Fri, 21 Feb 2014 20:12:38 +0000, 
+	updated_at: Tue, 18 Mar 2014 05:18:49 +0000, 
+	subscription_plan: "Attorneys", 
+	time_zone: "Mountain Time (US & Canada)", 
+	first_name: "John", 
+	last_name: "Murray", 
+	email: "john@divorcecounselor.com", 
+	enabled: false
+>
+]
+
