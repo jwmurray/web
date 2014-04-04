@@ -20,15 +20,54 @@ class ClientsController < ApplicationController
 
     @contacts  = client.contacts.list(type: 'Person');
     
+
+    updatedNames = [
+"Jenny Ertmann",
+"Joanna B Sagers",
+"Michelle Blomquist",
+"Paul B. Parker",
+"Michael Reason",
+"Felicia Haycock",
+"Jason Crownover",
+"Michael Forsberg",
+"Julie Winkler",
+"Catherine S. Conklin",
+"Kathryn Scott",
+"Thomas L. Kay",
+"Ryan Haycock",
+"John W. Murray",
+"Jefferson Bagby",
+"Gary White",
+"Annie Allred",
+"Sunny McIntosh"];
     
     logger.info "contact:  " + @contacts[1].to_s;
     logger.info "contact.inspect(): " + @contacts[1].inspect();
     logger.info "contact.name: " + @contacts[1].name;
 
-    @contacts.each do |contact| 
-      logger.info "contact: " + contact.name + " phone: " + contact.phone_numbers.to_s;
+    @contacts.count.times do |i| 
+#    2.times do |i|
+      logger.info "contact[#{i}]: " + @contacts[i].name + " phone: " + 
+        @contacts[i].phone_numbers.first.to_s;
 
-      if contact.last_name == 'White1' 
+ #     @contacts[i].name = updatedNames[i];
+
+ #     full_name = updatedNames[i];
+ #     name = full_name.split(' ');
+
+      
+ #     first_name = name[0];
+ #     (name.count - 2).times do |i|
+ #       first_name += " " + name[i+1];
+ #       end
+      
+ #     @contacts[i].first_name = first_name;
+ #     @contacts[i].last_name = name.last;
+#      @contacts[i].save
+      
+#      logger.info "contact[#{i}]: " + @contacts[i].name + " phone: " + @contacts[i].phone_numbers.to_s;
+#        logger.info "contact.inspect(): " + @contacts[i].inspect();
+      if 3 == 5
         contact.first_name = 'Gary ' + Time.now.strftime("%d/%m/%Y %H:%M");
         contact.save;
         logger.info "contact: " + contact.name + " phone: " + contact.phone_numbers.to_s;
