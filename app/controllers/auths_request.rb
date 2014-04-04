@@ -11,6 +11,7 @@ class AuthsRequest < ApplicationController
     access.client_id = 'rVUqQhIrJEVkkSVo3uSyrRgDzzLum1b8J1NJ4Dtv';
     access.client_secret = 'jjF3E6Lyx48yk7QkNvE7IykYr6iJIHBx8C7cBaS4';
     access.client_callback_url = "http://192.168.2.103:3000/callback";
+#    access.client_callback_url = "http://192.168.0.146:3000/callback";
     access.save;
 #    client_url = "https://app.goclio.com/oauth/approval";
 
