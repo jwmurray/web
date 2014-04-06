@@ -1,4 +1,6 @@
 Web::Application.routes.draw do
+  resources :contacts
+
   resources :auths
 #  get "auths/callback"
   resources :callback

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403191306) do
+ActiveRecord::Schema.define(version: 20140406044807) do
 
   create_table "accesses", force: true do |t|
     t.string   "token"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20140403191306) do
   create_table "bylines", force: true do |t|
     t.integer  "document_id"
     t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contacts", force: true do |t|
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

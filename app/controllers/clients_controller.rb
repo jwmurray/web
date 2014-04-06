@@ -49,7 +49,18 @@ class ClientsController < ApplicationController
 #    2.times do |i|
       logger.info "contact[#{i}]: " + @contacts[i].name + " phone: " + 
         @contacts[i].phone_numbers.first.to_s;
+      
+      contact = Contact.where(name: @contacts[i].name).first;
 
+
+      if contact == nil 
+        logger.info "answer: nil";
+        contact = Contact.new;
+        contact.name = @contacts[i].name;
+        contact.save;
+        else
+              logger.info "answer: #{contact.name}";
+      end
  #     @contacts[i].name = updatedNames[i];
 
  #     full_name = updatedNames[i];
