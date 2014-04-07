@@ -56,11 +56,20 @@ class ClientsController < ApplicationController
       if contact == nil 
         logger.info "answer: nil";
         contact = Contact.new;
+        else
         contact.name = @contacts[i].name;
         contact.save;
-        else
-              logger.info "answer: #{contact.name}";
       end
+
+      if(contact.last_name != @contacts[i].last_name ||
+         contact.first_name != @contacts[i].first_name)
+
+        contact.last_name = @contacts[i].last_name;
+        contact.first_name = @contacts[i].first_name;
+        contact.save;
+      end
+      logger.info "answer: #{contact.name}";
+
  #     @contacts[i].name = updatedNames[i];
 
  #     full_name = updatedNames[i];
