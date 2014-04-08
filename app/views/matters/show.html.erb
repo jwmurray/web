@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Case number:</strong>
+  <%= @matter.case_number %>
+</p>
+
+<p>
+  <strong>Judge:</strong>
+  <%= @matter.judge_id %>
+</p>
+
+<p>
+  <strong>Commissioner:</strong>
+  <%= @matter.commissioner_id %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @matter.client_id %>
+</p>
+
+<p>
+  <strong>Opp:</strong>
+  <%= @matter.opp_id %>
+</p>
+
+<p>
+  <strong>Court:</strong>
+  <%= @matter.court_id %>
+</p>
+
+<%= link_to 'Edit', edit_matter_path(@matter) %> |
+<%= link_to 'Back', matters_path %>

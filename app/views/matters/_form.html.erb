@@ -1,0 +1,41 @@
+<%= form_for(@matter) do |f| %>
+  <% if @matter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@matter.errors.count, "error") %> prohibited this matter from being saved:</h2>
+
+      <ul>
+      <% @matter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :case_number %><br>
+    <%= f.text_field :case_number %>
+  </div>
+  <div class="field">
+    <%= f.label :judge_id %><br>
+    <%= f.number_field :judge_id %>
+  </div>
+  <div class="field">
+    <%= f.label :commissioner_id %><br>
+    <%= f.number_field :commissioner_id %>
+  </div>
+  <div class="field">
+    <%= f.label :client_id %><br>
+    <%= f.number_field :client_id %>
+  </div>
+  <div class="field">
+    <%= f.label :opp_id %><br>
+    <%= f.number_field :opp_id %>
+  </div>
+  <div class="field">
+    <%= f.label :court_id %><br>
+    <%= f.number_field :court_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

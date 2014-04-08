@@ -1,0 +1,37 @@
+<h1>Listing matters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Case number</th>
+      <th>Judge</th>
+      <th>Commissioner</th>
+      <th>Client</th>
+      <th>Opp</th>
+      <th>Court</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matters.each do |matter| %>
+      <tr>
+        <td><%= matter.case_number %></td>
+        <td><%= matter.judge_id %></td>
+        <td><%= matter.commissioner_id %></td>
+        <td><%= matter.client_id %></td>
+        <td><%= matter.opp_id %></td>
+        <td><%= matter.court_id %></td>
+        <td><%= link_to 'Show', matter %></td>
+        <td><%= link_to 'Edit', edit_matter_path(matter) %></td>
+        <td><%= link_to 'Destroy', matter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Matter', new_matter_path %>

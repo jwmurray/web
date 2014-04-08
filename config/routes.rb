@@ -1,4 +1,6 @@
 Web::Application.routes.draw do
+  resources :matters
+
   resources :contacts
 
   resources :auths

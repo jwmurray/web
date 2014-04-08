@@ -1,3 +1,32 @@
-<h1>Clients Index</h1>
+<h1>Contacts Listing</h1>
 <p>Find me at index.html.erb</p>
-<%= @me[1].first_name + ' ' + @me[1].last_name + ' ' + @me[0].name %>
+
+
+<table border=3 cellspacing=0>
+  <thead>
+    <tr>
+      <th>Contact id</th>
+      <th>Contact Name</th>
+      <th>Contact First Name</th>
+      <th>Contact Last Name</th>
+      <th>Updated</th>
+    
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.id %></td>
+        <td><%= contact.name %></td>
+        <td><%= contact.first_name %></td>
+        <td><%= contact.last_name %></td>
+        <td><%= contact.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
