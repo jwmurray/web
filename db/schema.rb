@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406044807) do
+ActiveRecord::Schema.define(version: 20140408123836) do
 
   create_table "accesses", force: true do |t|
     t.string   "token"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140406044807) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "documents", force: true do |t|
@@ -61,6 +62,18 @@ ActiveRecord::Schema.define(version: 20140406044807) do
     t.binary   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "matters", force: true do |t|
+    t.string   "case_number"
+    t.integer  "judge_id"
+    t.integer  "commissioner_id"
+    t.integer  "client_id"
+    t.integer  "opp_id"
+    t.integer  "court_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "display_number"
   end
 
 end

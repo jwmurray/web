@@ -5,6 +5,45 @@ class MattersController < ApplicationController
   # GET /matters.json
   def index
     @matters = Matter.all
+
+    access = Access.last;
+
+
+    client = ClioClient::Session.new({client_id: access.client_id, 
+                                      client_secret: access.client_secret,
+                                     client_url: access.client_callback_url});
+
+    client.access_token = access.token;
+
+     @clioMatters  = client.matters.list();
+
+     @clioMatters.count.times do |i|
+
+#       m = @clioMatters[i];
+       logger.info "Inspect matter[]#{i}]: " + 
+         @clioMatters[i].inspect() + "\n\n";
+       myNewMatter = Matter.where(display_number: 
+                                   @clioMatters[i].display_number).first;
+
+       logger.info "\nmyNewMatter: " + myNewMatter.inspect() + "\n\n";
+
+       if(myNewMatter == nil)
+         myNewMatter = Matter.new;
+         myNewMatter.display_number = @clioMatters[i].display_number;
+         myNewMatter.display_number = @clioMatters[i].display_number;
+         myNewMatter.display_number = @clioMatters[i].display_number;
+         myNewMatter.display_number = @clioMatters[i].display_number;
+         myNewMatter.save;
+         logger.info "added matter " + myNewMatter.case_number.to_s;
+       else
+         
+       end
+
+
+     end
+    
+
+
   end
 
   # GET /matters/1
