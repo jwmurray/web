@@ -1,3 +1,6 @@
+require 'MatterUtils'
+include MatterUtils
+
 class MattersController < ApplicationController
   before_action :set_matter, only: [:show, :edit, :update, :destroy]
 
@@ -15,33 +18,38 @@ class MattersController < ApplicationController
 
     client.access_token = access.token;
 
+
+    logger.info "access.token: " + access.token.to_s;
+#    logger.info "dumping matters, client.matters: " + client.matters.inspect.to_s
      @clioMatters  = client.matters.list();
 
      @clioMatters.count.times do |i|
-
-#       m = @clioMatters[i];
-       logger.info "Inspect matter[]#{i}]: " + 
-         @clioMatters[i].inspect() + "\n\n";
-       myNewMatter = Matter.where(display_number: 
-                                   @clioMatters[i].display_number).first;
-
-       logger.info "\nmyNewMatter: " + myNewMatter.inspect() + "\n\n";
-
-       if(myNewMatter == nil)
-         myNewMatter = Matter.new;
-         myNewMatter.display_number = @clioMatters[i].display_number;
-         myNewMatter.display_number = @clioMatters[i].display_number;
-         myNewMatter.display_number = @clioMatters[i].display_number;
-         myNewMatter.display_number = @clioMatters[i].display_number;
-         myNewMatter.save;
-         logger.info "added matter " + myNewMatter.case_number.to_s;
-       else
+       #     1.times do |i|
+       if(i == 6)
+         matter = @clioMatters[i];
+         #       logger.info matter.inspect().to_s;
          
+         MatterDump(matter);
+
+         #       m = @clioMatters[i];
+         #       logger.info "Inspect matter[]#{i}]: " + @clioMatters[i].inspect() + "\n\n";
+         myNewMatter = Matter.where(display_number: 
+                                    @clioMatters[i].display_number).first;
+
+         logger.info "\nmyNewMatter: " + myNewMatter.inspect() + "\n\n";
+
+         if(myNewMatter == nil)
+           myNewMatter = Matter.new;
+           myNewMatter.display_number = @clioMatters[i].display_number;
+           myNewMatter.save;
+           logger.info "added matter " + myNewMatter.case_number.to_s;
+         else
+           
+         end
+
        end
-
-
      end
-    
+     
 
 
   end
