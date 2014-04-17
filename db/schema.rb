@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408123836) do
+ActiveRecord::Schema.define(version: 20140417201226) do
 
   create_table "accesses", force: true do |t|
     t.string   "token"
@@ -51,7 +51,15 @@ ActiveRecord::Schema.define(version: 20140408123836) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
+  end
+
+  create_table "custom_fields", force: true do |t|
+    t.string   "name"
+    t.string   "parent_type"
+    t.string   "field_type"
+    t.string   "displayed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "documents", force: true do |t|

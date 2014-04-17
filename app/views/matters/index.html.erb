@@ -1,5 +1,6 @@
 <h1>Listing matters</h1>
 
+<h2>Count: <%= @matters.count %></h2>
 <table>
   <thead>
     <tr>
@@ -15,11 +16,13 @@
     </tr>
   </thead>
 
+
   <tbody>
+    
     <% @matters.each do |matter| %>
       <tr>
-        <td><%= matter.case_number %></td>
-        <td><%= matter.judge_id %></td>
+        <td><%= matter.id %></td>
+        <td><%= matter.display_number %></td>
         <td><%= matter.commissioner_id %></td>
         <td><%= matter.client_id %></td>
         <td><%= matter.opp_id %></td>

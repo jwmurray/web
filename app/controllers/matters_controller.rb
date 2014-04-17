@@ -1,4 +1,4 @@
-require 'MatterUtils'
+require 'matter_utils'
 include MatterUtils
 
 class MattersController < ApplicationController
@@ -23,24 +23,32 @@ class MattersController < ApplicationController
 #    logger.info "dumping matters, client.matters: " + client.matters.inspect.to_s
      @clioMatters  = client.matters.list();
 
+    logger.info "matters.count:  " + @clioMatters.count.to_s
+
      @clioMatters.count.times do |i|
        #     1.times do |i|
-       if(i == 6)
+      logger.info "Matter: " + @clioMatters[i].display_number.to_s
+       if(i <= 66)
          matter = @clioMatters[i];
-         #       logger.info matter.inspect().to_s;
-         
-         MatterDump(matter);
+
+         if(i==6)
+           logger.info matter.inspect().to_s;
+           logger.info " "
+           MatterDump(matter);
+         end
+
 
          #       m = @clioMatters[i];
          #       logger.info "Inspect matter[]#{i}]: " + @clioMatters[i].inspect() + "\n\n";
          myNewMatter = Matter.where(display_number: 
                                     @clioMatters[i].display_number).first;
 
-         logger.info "\nmyNewMatter: " + myNewMatter.inspect() + "\n\n";
+ #        logger.info "\nmyNewMatter: " + myNewMatter.inspect() + "\n\n";
 
          if(myNewMatter == nil)
            myNewMatter = Matter.new;
            myNewMatter.display_number = @clioMatters[i].display_number;
+           myNewMatter.id = @clioMatters[i].id;
            myNewMatter.save;
            logger.info "added matter " + myNewMatter.case_number.to_s;
          else
